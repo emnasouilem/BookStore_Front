@@ -1,0 +1,36 @@
+
+
+        <div class="row col-md-7">
+            <form [formGroup]="productForm" style="width: 100%;">
+                <div class="form-group">
+                    <input class="form-control" formControlName="ref" required [(ngModel)]="book.reference"
+                        placeholder="Saisi la référence du produit">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" formControlName="auteur" required [(ngModel)]="book.auteur"
+                        placeholder="Saisi l'auteur du produit">
+                </div>
+                <div class="form-group">
+                    <input formControlName="title" class="form-control" required [(ngModel)]="book.titre"
+                    placeholder="Saisi le titre du produit">
+                </div>
+                <div class="form-group">
+                        <input class="form-control" formControlName="prix" required [(ngModel)]="book.prixUnitaire"
+                            placeholder="Prix" type="number">
+                    </div>
+                <div class="form-group">
+                    <input class="form-control" formControlName="date" required [(ngModel)]="book.dateRealisation"
+                        placeholder="date realisation">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" formControlName="description" required [(ngModel)]="book.designation"
+                        placeholder="description"></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <button class="btn btn-success form-control" (click)="save()" [disabled]="!productForm.valid"> Save</button> 
+                </div>
+               
+            </form>
+        </div>
+   

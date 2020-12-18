@@ -1,0 +1,36 @@
+<form [formGroup]="achatForm">
+    <div class="row">
+    <div class="col-md-3">
+        <div class="col-md-3">
+            </div>
+    </div>
+    <br>
+    <ng-container>
+    <div class="row list">
+        <div class=" product" *ngFor="let p of  books | async">
+            <div class="row">
+                <img width="40%" height="150"
+                    src="./assets/img.jpg" />
+            </div>
+            <div class="row">
+                <h4>{{p.titre}}</h4>
+            </div>
+            <div class="row"> <b>{{p.auteur}}</b>  <br>{{p.designation}}</div>
+            <div class="row col-md-12 ">
+                <span class="prix"><b>{{p.prixUnitaire}} Dt </b> &nbsp; </span>
+                    <button class="btn btn-danger" (click)="delete(p.id)"> Delete</button>
+                    <button type="submit" class="btn btn-info"  (click)="Buy(p.id ,qte.value )"> Buy</button> 
+                    <input [ngModel]='lignePanier.qte' style="float: right; border-color: rgb(0, 166, 216); width: 10%;" formControlName="qte" required 
+                        placeholder="quantité"  type="number" #qte>
+                        
+                   
+                </div>
+            
+              <!--<button class="btn btn-warning" [routerLink]="['/edit/'+p.ref]">+ Add</button>-->
+          
+        </div>
+
+    </div>
+</ng-container>
+</div>
+</form>
